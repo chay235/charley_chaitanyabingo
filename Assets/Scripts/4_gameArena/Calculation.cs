@@ -7,7 +7,10 @@ public class Calculation : MonoBehaviour
 {
     Dividend dividend;
     Divisor divisor;
-    Quotient quotient;
+    //Quotient quotient;
+
+    public GameObject gameobject;
+    public string hintText;
 
     public int currentLevelDivisor;
     public int i;
@@ -17,10 +20,9 @@ public class Calculation : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
         dividend = GameObject.Find("dividend").GetComponent<Dividend>();
         divisor = GameObject.Find("divisor").GetComponent<Divisor>();
-        quotient = GameObject.Find("quotient").GetComponent<Quotient>();
+        //quotient = GameObject.Find("quotient").GetComponent<Quotient>();
 
         if(Problem.Instance != null)
         {
@@ -54,7 +56,9 @@ public class Calculation : MonoBehaviour
             dividend.GetComponent<TMP_Text>().text = Problem.Instance.dividendlist[i].ToString();
             divisor.GetComponent<TMP_Text>().text = currentLevelDivisor.ToString();
             currentquotient = Problem.Instance.dividendlist[i] / currentLevelDivisor;
-            quotient.GetComponent<TMP_Text>().text = currentquotient.ToString();
+            //quotient.GetComponent<TMP_Text>().text = currentquotient.ToString();
+
+            hintText = " " + dividend.GetComponent<TMP_Text>().text + " % " + divisor.GetComponent<TMP_Text>().text + " = ?";
         }
         else
         {
